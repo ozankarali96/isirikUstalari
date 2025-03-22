@@ -2,16 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Compile') {
+        stage('Project 1 - Compile & Run') {
             steps {
-                // Main.java dosyasını derliyoruz.
                 sh 'javac Main.java'
+                sh 'java Main'
             }
         }
         stage('Run') {
             steps {
-                // Derlenmiş sınıfı çalıştırıyoruz.
-                sh 'java Main'
+                sh 'javac Main2.java'
+                sh 'java Main2'
             }
         }
     }
