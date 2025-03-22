@@ -5,7 +5,6 @@ pipeline {
         stage('Compile & Run Main') {
             steps {
                 dir('src/main/java') {
-                    // Bu blok içinde pwd = "workspace/src/main/java"
                     sh 'javac org/example/Main.java'
                     sh 'java org.example.Main'
                 }
