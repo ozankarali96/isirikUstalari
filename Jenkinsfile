@@ -2,16 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Project 1 - Compile & Run') {
+        stage('Compile & Run Main') {
             steps {
-                sh 'javac Main.java'
-                sh 'java Main'
+                dir('src/main/java') {
+                    // Bu blok içinde pwd = "workspace/src/main/java"
+                    sh 'javac org/example/Main.java'
+                    sh 'java org.example.Main'
+                }
             }
         }
-        stage('Run') {
+        stage('Compile & Run Main2') {
             steps {
-                sh 'javac Main2.java'
-                sh 'java Main2'
+                dir('src/main/java') {
+                    sh 'javac org/example/Main2.java'
+                    sh 'java org.example.Main2'
+                }
             }
         }
     }
