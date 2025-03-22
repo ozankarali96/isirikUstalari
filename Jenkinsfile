@@ -1,22 +1,18 @@
 pipeline {
-    agent any
+     agent any
 
-    stages {
-        stage('Compile & Run Main') {
-            steps {
-                dir('src/main/java') {
-                    sh 'javac org/example/Main.java'
-                    sh 'java org.example.Main'
-                }
-            }
-        }
-        stage('Compile & Run Main2') {
-            steps {
-                dir('src/main/java') {
-                    sh 'javac org/example/Main2.java'
-                    sh 'java org.example.Main2'
-                }
-            }
-        }
-    }
-}
+     stages {
+         stage('Compile') {
+             steps {
+                 // Main.java dosyasını derliyoruz.
+                 sh 'javac Main2.java'
+             }
+         }
+         stage('Run') {
+             steps {
+                 // Derlenmiş sınıfı çalıştırıyoruz.
+                 sh 'java Main2'
+             }
+         }
+     }
+ }
